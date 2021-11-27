@@ -1,16 +1,33 @@
 import React from "react";
-import "./Product.css";
+import "./Products.css";
 
-function Products({ productItems }) {
+function Products({ productItems, handleAddProduct }) {
   return (
     <div className="products">
       {productItems.map((productItem) => (
-        <div>
-          <img
-            className="product-image"
-            src={productItem.image}
-            alt={productItem.name}
-          />
+        <div className="card">
+          <div>
+            <img
+              className="product-image"
+              src={productItem.image}
+              alt={productItem.name}
+            />
+          </div>
+
+          <div>
+            <h3 className="product-name">{productItem.name}</h3>
+          </div>
+
+          <div className="product-price">{productItem.price}</div>
+
+          <div>
+            <button
+              className="product-add-button"
+              onClick={() => handleAddProduct(productItem)}
+            >
+              Add To Card
+            </button>
+          </div>
         </div>
       ))}
     </div>

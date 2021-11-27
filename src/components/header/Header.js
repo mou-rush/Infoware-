@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
-function Header() {
+function Header({ cartItems }) {
   return (
     <header className="header">
       <div>
@@ -20,13 +20,16 @@ function Header() {
         </ul>
         <ul>
           <li>
-            <Link to="/signup">SignUp</Link>
+            <Link to="/signup">Sign Up</Link>
           </li>
         </ul>
         <ul>
           <li>
             <Link to="/cart" className>
               <i class="fas fa-shopping-cart" />
+              <span className="cart-length">
+                {cartItems.length === 0 ? "" : cartItems.length}
+              </span>
             </Link>
           </li>
         </ul>
