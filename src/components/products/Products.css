@@ -1,11 +1,7 @@
 .products {
-  margin: 20px auto;
-  width: 80%;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  background-color: orange;
-  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .card {
