@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Card.css";
 
 function Cart({
@@ -7,10 +7,26 @@ function Cart({
   handleRemoveProduct,
   handleCartClearance,
 }) {
-  const totalPrice = cartItems.reduce(
-    (price, item) => price + item.quantity * item.price,
-    0
-  );
+  const [input, setInput] = useState(""); // '' is the initial state value
+
+  const finalTotalPrice = () => {
+    let totalProductAmount = 0;
+
+    if (cartItems != null && cartItems.length > 0) {
+      cartItems.forEach((item, index) => {
+        totalProductAmount += Number(item.quantity * item.price);
+      });
+    }
+    if (input === "less10") {
+      let discount = 10 / 100;
+      totalProductAmount = totalProductAmount - totalProductAmount * discount;
+    }
+    if (input === "less15") {
+      let discount = 15 / 100;
+      totalProductAmount = totalProductAmount - totalProductAmount * discount;
+    }
+    return Number(totalProductAmount).toFixed(2);
+  };
 
   return (
     <div className="cart-items">
@@ -50,14 +66,23 @@ function Cart({
               </button>
             </div>
             <div className="cart-items-price">
-              {item.quantity} * ${item.price}
+              {item.quantity} * &#8377;
+              {item.price}
             </div>
           </div>
         ))}
+        <div></div>
+        <input
+          style={{ clear: "both", float: "right" }}
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Enter Coupon"
+        />
       </div>
+
       <div className="cart-items-total-price-name">
-        Total Price
-        <div className="cart-items-total-price">${totalPrice}</div>
+        <p>Total Price</p>
+        <div className="cart-items-total-price">&#8377;{finalTotalPrice()}</div>
       </div>
     </div>
   );
