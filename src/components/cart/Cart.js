@@ -71,15 +71,21 @@ function Cart({
             </div>
           </div>
         ))}
-        <div></div>
-        <input
-          style={{ clear: "both", float: "right" }}
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Enter Coupon"
-        />
       </div>
 
+      <div className="cart-items-total-price-name">
+        <p>Promo Code</p>
+        <div className="cart-items-total-price">
+          {" "}
+          <input
+            type="text"
+            style={{ padding: 3 }}
+            value={input}
+            placeholder="Enter Coupon"
+            onChange={(e) => setInput(e.target.value)}
+          />
+        </div>
+      </div>
       <div className="cart-items-total-price-name">
         <p>Total Price</p>
         <div className="cart-items-total-price">&#8377;{finalTotalPrice()}</div>
