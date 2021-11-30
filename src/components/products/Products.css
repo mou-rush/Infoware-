@@ -1,11 +1,27 @@
 .products {
   display: grid;
-  /* grid-template-columns: repeat(3, 1fr);
-  gap: 20px; */
-
-  /* grid-template-columns: 1fr 1fr 1fr; */
   grid-template-columns: 1fr;
 }
+
+blink {
+  -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
+  animation: 2s linear infinite condemned_blink_effect;
+  font-size: 30px;
+  color: #cd1818;
+}
+
+@keyframes condemned_blink_effect {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
 .card {
   width: 300px;
   height: 400px;
@@ -64,15 +80,16 @@
 .discount-container {
   text-align: center;
   margin-top: 2%;
-  border: 5px dotted #bbb;
+  border: 5px dotted #dedede;
   width: 35%;
   border-radius: 15px;
   margin: 1% auto 0;
   max-width: 600px;
   padding: 1%;
 }
+
 .coupons {
-  font-size: 17px;
+  font-size: 20px;
 }
 
 /* RESPONSİVENESS */

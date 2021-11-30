@@ -5,10 +5,9 @@ function Products({ productItems, handleAddProduct }) {
   return (
     <div>
       <div className="discount-container">
-        {/* <h3>Offers</h3> */}
+        <blink>Offers</blink>
         <div>
           <p className="coupons">
-            {" "}
             <i class="fas fa-tags" />
             15% off up to ₹200 | Use code less15
           </p>

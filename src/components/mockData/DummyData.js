@@ -1,5 +1,3 @@
-// import vivo from "../assets/vivo.jpg";
-
 const data = {
   productItems: [
     {
